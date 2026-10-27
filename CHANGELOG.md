@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.1.2
+
+- Published on PyPI: `pip install customrp-core`
+- README links are absolute, so they work on PyPI too
+- No code changes
+
 ## 0.1.1
 
 - On macOS, also look for Discord's socket in the per-user temporary folder reported by the system,

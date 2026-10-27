@@ -31,18 +31,26 @@ It has no dependencies outside the Python standard library.
 
 ## Install
 
-Python 3.9 or newer. There's no PyPI release; install from Git, ideally inside a virtual environment:
+Python 3.9 or newer. Install from [PyPI](https://pypi.org/project/customrp-core/), ideally inside a
+virtual environment:
 
 ```sh
 python3 -m venv .venv
 source .venv/bin/activate            # Windows: .venv\Scripts\activate
-pip install "customrp-core @ git+https://github.com/KeiraOMG0/customrp-core.git@v0.1.1"
+pip install customrp-core
 ```
 
-In a `requirements.txt`:
+Or straight from Git, at a release tag:
+
+```sh
+pip install "customrp-core @ git+https://github.com/KeiraOMG0/customrp-core.git@v0.1.2"
+```
+
+In a `requirements.txt`, either works:
 
 ```
-customrp-core @ git+https://github.com/KeiraOMG0/customrp-core.git@v0.1.1
+customrp-core>=0.1.2,<0.2
+customrp-core @ git+https://github.com/KeiraOMG0/customrp-core.git@v0.1.2
 ```
 
 ## Example
@@ -71,21 +79,21 @@ except KeyboardInterrupt:
     pass
 ```
 
-More in [docs/getting-started.md](docs/getting-started.md).
+More in [docs/getting-started.md](https://github.com/KeiraOMG0/customrp-core/blob/main/docs/getting-started.md).
 
 ## Documentation
 
 | Page | Contents |
 |---|---|
-| [Getting started](docs/getting-started.md) | Installing, a first presence, common tasks |
-| [Presence model](docs/presence.md) | Every field, its limits, validation, and how the payload is built |
-| [Sessions](docs/sessions.md) | `PresenceSession`: connecting, retries, updates, threads |
-| [Low-level IPC](docs/ipc.md) | `DiscordIPC`, where Discord's socket is looked for, the wire protocol |
-| [Presets](docs/presets.md) | The `.crp` format and how it maps to `Presence` |
-| [Assets](docs/assets.md) | Listing an application's uploaded images |
-| [Testing with FakeDiscord](docs/testing.md) | Testing code that uses this library |
-| [Compatibility with CustomRP](docs/compatibility.md) | What matches the Windows app, what differs, what isn't verified |
-| [Development](docs/development.md) | Running the tests, project layout, releasing |
+| [Getting started](https://github.com/KeiraOMG0/customrp-core/blob/main/docs/getting-started.md) | Installing, a first presence, common tasks |
+| [Presence model](https://github.com/KeiraOMG0/customrp-core/blob/main/docs/presence.md) | Every field, its limits, validation, and how the payload is built |
+| [Sessions](https://github.com/KeiraOMG0/customrp-core/blob/main/docs/sessions.md) | `PresenceSession`: connecting, retries, updates, threads |
+| [Low-level IPC](https://github.com/KeiraOMG0/customrp-core/blob/main/docs/ipc.md) | `DiscordIPC`, where Discord's socket is looked for, the wire protocol |
+| [Presets](https://github.com/KeiraOMG0/customrp-core/blob/main/docs/presets.md) | The `.crp` format and how it maps to `Presence` |
+| [Assets](https://github.com/KeiraOMG0/customrp-core/blob/main/docs/assets.md) | Listing an application's uploaded images |
+| [Testing with FakeDiscord](https://github.com/KeiraOMG0/customrp-core/blob/main/docs/testing.md) | Testing code that uses this library |
+| [Compatibility with CustomRP](https://github.com/KeiraOMG0/customrp-core/blob/main/docs/compatibility.md) | What matches the Windows app, what differs, what isn't verified |
+| [Development](https://github.com/KeiraOMG0/customrp-core/blob/main/docs/development.md) | Running the tests, project layout, releasing |
 
 ## Platform support
 
@@ -97,7 +105,7 @@ More in [docs/getting-started.md](docs/getting-started.md).
 
 The Discord client has to run on the same machine and user account, since Rich Presence only works
 through its local IPC endpoint. Flatpak, Snap and Vesktop socket locations are searched too (see
-[docs/ipc.md](docs/ipc.md)); those paths come from other Rich Presence projects, and none has been tested here.
+[docs/ipc.md](https://github.com/KeiraOMG0/customrp-core/blob/main/docs/ipc.md)); those paths come from other Rich Presence projects, and none has been tested here.
 
 ## Credits
 
@@ -107,4 +115,4 @@ the original app and for being open to an independent alternative.
 
 ## License
 
-MIT. See [LICENSE](LICENSE).
+MIT. See [LICENSE](https://github.com/KeiraOMG0/customrp-core/blob/main/LICENSE).
