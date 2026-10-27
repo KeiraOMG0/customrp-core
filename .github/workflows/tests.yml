@@ -1,8 +1,11 @@
 name: Tests
 
+# On main and pull requests, publish.yml runs these tests before releasing.
+# On other branches, they run on their own.
 on:
   push:
-  pull_request:
+    branches-ignore: [main]
+  workflow_call:
 
 jobs:
   test:

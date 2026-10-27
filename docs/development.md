@@ -24,8 +24,8 @@ The integration tests are skipped by default. `test_handshake` only connects; it
 status. `test_presence_is_accepted` sets a presence for a moment, and only runs with
 `CUSTOMRP_LIVE_PRESENCE=1`.
 
-CI (`.github/workflows/tests.yml`) runs the unit tests on Ubuntu, Windows and macOS, with the oldest
-and newest supported Python.
+CI (`.github/workflows/tests.yml`, run by `publish.yml` on `main` and pull requests) runs the unit
+tests on Ubuntu, Windows and macOS, with the oldest and newest supported Python.
 
 ## Layout
 
@@ -58,16 +58,28 @@ Releases go to [PyPI](https://pypi.org/project/customrp-core/) through GitHub Ac
 (`.github/workflows/publish.yml`), using PyPI's
 [trusted publishing](https://docs.pypi.org/trusted-publishers/), so no API token is stored anywhere.
 
-1. Update `__version__` in `src/customrp_core/__init__.py` and `CHANGELOG.md`.
-2. Commit, then tag: `git tag -a v0.2.0 -m "customrp-core 0.2.0" && git push origin main v0.2.0`.
-3. The workflow builds the package, checks that the tag matches `__version__`, and waits for approval:
-   open the run under **Actions**, then **Review deployments** → **pypi** → **Approve and deploy**.
-4. Update customrp-cli: the version range in `pyproject.toml` and the tag in `requirements.txt`.
+Releases are automatic. To release:
 
-Every push also builds the package and runs `twine check`, so packaging problems show up before a release.
+1. Update `__version__` in `src/customrp_core/__init__.py`, and rename `## Unreleased` in
+   `CHANGELOG.md` to `## <version>`.
+2. Commit and push to `main`.
 
-The `pypi` environment (repository **Settings → Environments**) only accepts `v*` tags and needs a
-reviewer's approval. The matching trusted publisher on PyPI is set for this repository, workflow
-`publish.yml` and environment `pypi`; renaming any of these breaks publishing until PyPI is updated.
+On every push to `main`, the **CI and release** workflow runs the tests on all three systems and builds
+the package. If the tests pass and PyPI doesn't have that version yet, it publishes it, tags the commit
+`v<version>`, and creates a GitHub release with the changelog section as its notes. Pushes that don't
+change the version just run the tests. Don't create `v*` tags by hand; the workflow does that.
+
+Pull requests run the tests and the build, but never publish. If a release fails, open the run under
+**Actions** and use **Re-run failed jobs**, or start it again from **Actions → CI and release → Run
+workflow** on `main`.
+
+The `pypi` environment (repository **Settings → Environments**) only accepts the `main` branch. To
+require approval before each release, add yourself as a required reviewer there.
+
+If the release changes the API, update customrp-cli's version range in its `pyproject.toml` and
+`requirements.txt`.
+
+The matching trusted publisher on PyPI is set for this repository, workflow `publish.yml` and
+environment `pypi`; renaming any of these breaks publishing until PyPI is updated.
 
 Versions follow semantic versioning. Until 1.0, minor versions may change the API.

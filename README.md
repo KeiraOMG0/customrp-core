@@ -46,11 +46,10 @@ Or straight from Git, at a release tag:
 pip install "customrp-core @ git+https://github.com/KeiraOMG0/customrp-core.git@v0.1.2"
 ```
 
-In a `requirements.txt`, either works:
+In a `requirements.txt`:
 
 ```
 customrp-core>=0.1.2,<0.2
-customrp-core @ git+https://github.com/KeiraOMG0/customrp-core.git@v0.1.2
 ```
 
 ## Example

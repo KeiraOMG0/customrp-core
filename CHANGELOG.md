@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased
+
+- Releases are automatic: pushing a new version to `main` publishes it, tags it and creates a GitHub release
+
 ## 0.1.2
 
 - Published on PyPI: `pip install customrp-core`
