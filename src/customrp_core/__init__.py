@@ -4,7 +4,7 @@ Build a :class:`Presence`, then either turn it into a payload with :func:`build_
 with :class:`DiscordIPC`, or let :class:`PresenceSession` handle connecting, retrying and resending.
 """
 
-__version__ = "0.1.0"
+__version__ = "0.1.1"
 
 from .errors import AssetsError, CustomRPError, PresenceError, PresetError  # noqa: E402
 from .ipc import DiscordIPC, display_name, ipc_paths, open_transport  # noqa: E402

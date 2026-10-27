@@ -120,6 +120,15 @@ def _unix_candidate_dirs():
         value = os.environ.get(var)
         if value and value not in bases:
             bases.append(value)
+    if sys.platform == "darwin":
+        # Discord uses the per-user temporary folder, which is $TMPDIR in a login session.
+        # Programs started by launchd may not have TMPDIR set, so also ask the system.
+        try:
+            user_tmp = os.confstr("CS_DARWIN_USER_TEMP_DIR")
+        except (ValueError, OSError, AttributeError):
+            user_tmp = None
+        if user_tmp and user_tmp.rstrip("/") not in (b.rstrip("/") for b in bases):
+            bases.append(user_tmp)
     if "/tmp" not in bases:
         bases.append("/tmp")
 

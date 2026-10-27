@@ -177,6 +177,7 @@ class PresenceSession:
             log.info("Connected to Discord as %s", display_name(self.user) or "unknown user")
             self._send()
         elif kind == "presence":
+            log.info("Presence updated")
             self._retries_left = None
             self._set_state(SessionState.CONNECTED, "Presence updated")
         elif kind == "error":

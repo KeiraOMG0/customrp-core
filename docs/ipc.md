@@ -13,7 +13,8 @@ when several Discord clients (for example stable and Canary) run at once.
 | Windows | Named pipe `\\.\pipe\discord-ipc-N` |
 | Linux, macOS | Unix socket `<dir>/discord-ipc-N` |
 
-On Unix, `<dir>` is tried in this order: `$XDG_RUNTIME_DIR`, `$TMPDIR`, `$TMP`, `$TEMP`, then `/tmp`.
+On Unix, `<dir>` is tried in this order: `$XDG_RUNTIME_DIR`, `$TMPDIR`, `$TMP`, `$TEMP`, on macOS the
+per-user temporary folder (`getconf DARWIN_USER_TEMP_DIR`, for programs started without `TMPDIR`), then `/tmp`.
 Each of those is also searched for these subdirectories, which sandboxed clients use:
 
 | Subdirectory | Client |

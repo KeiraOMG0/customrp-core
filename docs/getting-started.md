@@ -11,10 +11,10 @@
 ```sh
 python3 -m venv .venv
 source .venv/bin/activate            # Windows: .venv\Scripts\activate
-pip install "customrp-core @ git+https://github.com/KeiraOMG0/customrp-core.git@v0.1.0"
+pip install "customrp-core @ git+https://github.com/KeiraOMG0/customrp-core.git@v0.1.1"
 ```
 
-Pin a tag (`@v0.1.0`) rather than `@main` so updates don't surprise you. The package imports as
+Pin a tag (`@v0.1.1`) rather than `@main` so updates don't surprise you. The package imports as
 `customrp_core`.
 
 ## A first presence

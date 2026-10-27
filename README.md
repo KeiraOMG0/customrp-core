@@ -36,13 +36,13 @@ Python 3.9 or newer. There's no PyPI release; install from Git, ideally inside a
 ```sh
 python3 -m venv .venv
 source .venv/bin/activate            # Windows: .venv\Scripts\activate
-pip install "customrp-core @ git+https://github.com/KeiraOMG0/customrp-core.git@v0.1.0"
+pip install "customrp-core @ git+https://github.com/KeiraOMG0/customrp-core.git@v0.1.1"
 ```
 
 In a `requirements.txt`:
 
 ```
-customrp-core @ git+https://github.com/KeiraOMG0/customrp-core.git@v0.1.0
+customrp-core @ git+https://github.com/KeiraOMG0/customrp-core.git@v0.1.1
 ```
 
 ## Example

@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.1.1
+
+- On macOS, also look for Discord's socket in the per-user temporary folder reported by the system,
+  for programs started by launchd without `TMPDIR` set
+- `PresenceSession` logs "Presence updated" at INFO level each time Discord accepts a presence
+
 ## 0.1.0
 
 First release.
